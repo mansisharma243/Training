@@ -12,7 +12,12 @@ terraform {
 
   required_version = ">= 1.2.5"
 
-  backend "azurerm" {}
+  backend "azurerm" {
+    resource_group_name   = "Terraform-statefiles"
+    storage_account_name  = "testatesams"
+    container_name        = "testing"
+    key                   = "msstatetf-terraform.tfstate"
+  }
 }
 
 provider "azurerm" {
